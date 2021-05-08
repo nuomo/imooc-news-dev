@@ -1,0 +1,7 @@
+com/imooc/api/controller/user/UserControllerApi.class
+com/imooc/api/controller/user/fallback/UserControllerFactoryFallback.class
+com/rule/MyRule.class
+com/imooc/api/controller/article/ArticleControllerApi.class
+com/imooc/api/config/MyServiceList.class
+com/imooc/api/config/RabbitMQConfig.class
+com/imooc/api/controller/user/fallback/UserControllerFactoryFallback$1.class

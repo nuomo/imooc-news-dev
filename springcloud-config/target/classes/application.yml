@@ -1,0 +1,50 @@
+############################################################
+#
+# config
+#
+############################################################
+server:
+  port: 7080
+  tomcat:
+    uri-encoding: UTF-8
+
+############################################################
+#
+# 配置项目信息
+#
+############################################################
+spring:
+  application:
+    name: springcloud-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/nuomo/imooc-news.git
+#          force-pull: truemanagement
+      label: mainmanagement
+  rabbitmq:
+    host: 192.168.93.129
+    port: 5672
+    username: admin
+    password: admin
+    virtual-host: imooc-news-dev
+
+
+eureka:
+  server:
+    hostname: eureka
+    port: 7000
+  client:
+    service-url:
+#      defaultZone: http://${eureka.server.hostname}:${eureka.server.port}/eureka/
+      defaultZone: http://eureka-cluster-7001:7001/eureka/,http://eureka-cluster-7002:7002/eureka/,http://eureka-cluster-7003:7003/eureka/
+  instance:
+      lease-renewal-interval-in-seconds: 3      # 调整微服务（eureka client）和注册中心（eureka server）的心跳时间
+      lease-expiration-duration-in-seconds: 5   # eureka 举例最近的一次心跳等待提出的时间，默认90s
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
